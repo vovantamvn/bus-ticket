@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th=”http://www.thymeleaf.org”
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/decorate/web/layout.html">
+<body>
+<section layout:fragment="content">
+    <h2>Well come!</h2>
+    <button id="hello" type="button" class="btn btn-primary">Hello</button>
+</section>
+<section layout:fragment="script">
+    <script>
+        $(function (){
+            $('#hello').click(function (){
+               alert('Hello');
+            });
+        });
+    </script>
+</section>
+</body>
+</html>
