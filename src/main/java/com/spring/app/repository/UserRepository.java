@@ -6,8 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
-    /*
-    find a user by username
+    /**
+     * Find a user by username
+     * @param username
+     * @return Optional<User>
      */
     Optional<User> findUserByUsername(String username);
 }

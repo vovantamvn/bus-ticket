@@ -1,4 +1,4 @@
-
+# Config for application
 spring:
   # Config thymeleaf
   thymeleaf:
