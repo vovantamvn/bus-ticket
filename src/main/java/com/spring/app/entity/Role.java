@@ -14,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class Role extends BaseEntity {
 
+    @Column(nullable = false, unique = true)
     @Enumerated(EnumType.STRING)
     private RoleType role;
 

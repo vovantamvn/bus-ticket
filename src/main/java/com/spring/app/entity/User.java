@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,9 +23,9 @@ public class User extends BaseEntity {
     private String username;
 
     @Column(nullable = false)
-
     private String password;
 
+    @Column(nullable = false)
     private String firstName;
 
     private String lastName;
@@ -32,6 +33,11 @@ public class User extends BaseEntity {
     private LocalDate dateOfBirth;
 
     private String avatar;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    private boolean isActive;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -42,5 +48,5 @@ public class User extends BaseEntity {
     private Set<Role> roles = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
-    private List<Car> cars;
+    private List<Car> cars = new ArrayList<>();
 }

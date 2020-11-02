@@ -12,4 +12,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * @return Optional<User>
      */
     Optional<User> findUserByUsername(String username);
+
+    /**
+     * Find a user by email
+     * @param email
+     * @return Optional<User>
+     */
+    Optional<User> findUserByEmail(String email);
 }
