@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService {
         });
         newUser.setRoles(Set.of(role));
 
-        this.create(newUser);
+        userRepository.save(newUser);
         String message = "Kiểm tra email để kích hoạt tài khoản!";
         return new Message(MessageType.SUCCESS, message);
     }

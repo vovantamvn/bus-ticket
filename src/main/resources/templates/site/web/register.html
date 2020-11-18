@@ -4,19 +4,48 @@
       layout:decorate="/decorate/web/layout.html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <style>
+        .main-container {
+            text-align: center;
+        }
+
+        .form-control {
+            margin-top: 10px;
+        }
+
+        .btn-register {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn-register-container {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <section layout:fragment="content">
-    <form action="#" th:action="@{/register}" th:object="${user}" method="post">
-        <input class="form-control" type="text" th:field="*{username}" placeholder="Username"/>
-        <input class="form-control" type="text" th:field="*{email}" placeholder="Email"/>
-        <input class="form-control" type="text" th:field="*{firstName}" placeholder="firstName"/>
-        <input class="form-control" type="text" th:field="*{lastName}" placeholder="lastName"/>
-        <input class="form-control" type="text" th:field="*{password}" placeholder="password"/>
 
-        <button class="btn btn-primary" type="submit">Register</button>
-    </form>
+    <div th:if="${message} != null">
+        <p th:text="${message.content}"></p>
+    </div>
+
+
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+                <input class="form-control" type="text" th:field="*{username}" placeholder="Username"/>
+                <input class="form-control" type="text" th:field="*{email}" placeholder="Email"/>
+                <input class="form-control" type="text" th:field="*{firstName}" placeholder="FirstName"/>
+                <input class="form-control" type="text" th:field="*{lastName}" placeholder="LastName"/>
+                <input class="form-control" type="text" th:field="*{password}" placeholder="Password"/>
+
+                <div class="btn-register-container">
+                    <button class="btn btn-primary btn-register" type="submit">Đăng kí</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>
 </body>
 </html>
